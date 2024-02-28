@@ -1,0 +1,32 @@
+@model Login
+
+<form asp-action="Login" method="post">
+    <h3 class="text-center">Login</h3>
+
+    @* Login User Name *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="LoginUserName" class="font-bold">Username:</label>
+            <input asp-for="LoginUserName" class="form-control w-70 shadow-sm  border-solid" id="LoginUserName">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="LoginUserName" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* Login Password *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="LoginPassword" class="font-bold">Password:</label>
+            <input asp-for="LoginPassword" class="form-control w-70 shadow-sm border-solid" id="LoginPassword">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="LoginPassword" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* Botton Login *@
+    <span class="d-flex justify-content-end mt-3">
+        <input type="submit" class="botton-style border-solid font-bold" value="Login">
+    </span>
+</form>

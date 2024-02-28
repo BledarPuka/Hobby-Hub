@@ -1,0 +1,65 @@
+@model User
+
+<form asp-action="Register" method="post">
+    <h3 class="text-center">Register</h3>
+
+    @* First Name *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="FirstName" class="font-bold">First Name:</label>
+            <input asp-for="FirstName" class="form-control w-70 shadow-sm border-solid" id="FirstName">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* Last Name *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="LastName" class="font-bold">Last Name:</label>
+            <input asp-for="LastName" class="form-control w-70 shadow-sm border-solid" id="LastName">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* User Name *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="UserName" class="font-bold">Username:</label>
+            <input asp-for="UserName" class="form-control w-70 shadow-sm border-solid" id="UserName">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* Password *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="Password" class="font-bold">Password:</label>
+            <input asp-for="Password" class="form-control w-70 shadow-sm border-solid" id="Password">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* Confirm Password *@
+    <div class=" mt-4">
+        <div class="form-group d-flex align-items-center justify-content-between">
+            <label asp-for="PasswordConfirm" class="font-bold">PW Confirm:</label>
+            <input asp-for="PasswordConfirm" class="form-control w-70 shadow-sm border-solid" id="PasswordConfirm">
+        </div>
+        <span class="d-flex justify-content-end">
+            <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+        </span>
+    </div>
+
+    @* Botton Register *@
+    <span class="d-flex justify-content-end mt-3">
+        <input type="submit" class="botton-style border-solid font-bold" value="Register">
+    </span>
+</form>

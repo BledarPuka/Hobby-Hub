@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2 class="text-center mt-5">Hobbies</h2>
+<div class="row justify-content-around mt-5">
+    <div class="col-5">
+        <div>
+            <table class="table table-striped border-solid">
+                <thead>
+                    <tr class="background-gray">
+                        <th scope="col" class="border-bot-0">First</th>
+                        <th scope="col" class="border-left border-bot-0">Last</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Hobby item in ViewBag.AllHobbies)
+                    {
+                        <tr class="border-bot-0">
+                            <td class="border-bot-0"><a asp-action="HobbyDetails"
+                                    asp-route-itemid="@item.HobbyId">@item.Name</a></td>
+                            <td class="border-left border-bot-0">@item.EnthusiastList.Count()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <span class="margin-top">
+            <a asp-action="CreateHobby" class="h4">Create a Hobby</a>
+        </span>
+    </div>
+    <div class="col-3">
+        <div class="border-solid p-3 rounded">
+            <h5>Top Novices</h5>
+            @if (ViewBag.topNovice.Count > 0)
+            {
+                @foreach (var item in ViewBag.topNovice)
+                {
+                    <h6 class="mt-2 margin-left">@item</h6>
+                }
+            }
+            else
+            {
+                <h6 class="text-muted mt-2 margin-left">None</h6>
+            }
+
+            <h5 class="mt-3">Top Intermediates</h5>
+            @if (ViewBag.topIntermediate.Count > 0)
+            {
+                @foreach (var item in ViewBag.topIntermediate)
+                {
+                    <h6 class="mt-2 margin-left">@item</h6>
+                }
+            }
+            else
+            {
+                <h6 class="text-muted mt-2 margin-left">None</h6>
+            }
+
+            <h5 class="mt-3">Top Experts</h5>
+            @if (ViewBag.topExpert.Count > 0)
+            {
+                @foreach (var item in ViewBag.topExpert)
+                {
+                    <h6 class="mt-2 margin-left">@item</h6>
+                }
+            }
+            else
+            {
+                <h6 class="text-muted mt-2 margin-left">None</h6>
+            }
+        </div>
+    </div>
+</div>

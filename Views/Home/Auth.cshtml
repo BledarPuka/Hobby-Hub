@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Authentication Page";
+}
+
+<h2 class="text-center mt-5">Hobby Hub!</h2>
+
+<div class="row justify-content-around ">
+    <div class="col-4 mt-3">@await Html.PartialAsync("Partials/_Register")</div>
+    <div class="col-4 mt-3">@await Html.PartialAsync("Partials/_Login")</div>
+</div>

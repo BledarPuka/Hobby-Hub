@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Hobby Details";
+}
+
+@model Hobby
+
+<h2 class="m-5">@Model.Name</h2>
+
+<div class="w-70 m-5">
+    <div class="d-flex gap-20 align-items-centerr margin-left">
+        <h4>Description</h4>
+        <p>@Model.Description</p>
+    </div>
+
+    @if(ViewBag.userId == Model.UserId)
+    {
+        <span class="mt-4 d-flex justify-content-end">
+            <a asp-action="EditHobby" asp-route-itemid="@Model.HobbyId" class="botton-style border-solid text-dark  font-bold">Edit Hobby</a>
+        </span>
+    }
+</div>
+
+<div class="row justify-content-around mt-5">
+    <div class="col-3">
+        <h3>@Model.Name Enthusiasts</h3>
+        <table class="table table-striped border-solid mt-3">
+            <thead>
+                <tr class="background-gray">
+                    <th scope="col" class="border-bot-0">Name</th>
+                    <th scope="col" class="border-left border-bot-0">Proficiency</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Enthusiast item in Model.EnthusiastList)
+                {
+                    <tr class="border-bot-0">
+                        <td class="border-bot-0">@item.UserEnthusiast?.UserName</td>
+                        <td class="border-left border-bot-0">@item.Proficiency</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3">
+        <form asp-action="AddToHobbies" asp-route-itemid="@Model.HobbyId" method="post">
+            <div>
+                <span class="d-flex justify-content-end">
+                    <h3>Become an Enthusiast!</h3>
+                </span>
+                <span class="mt-3 d-flex justify-content-end">
+                    <select class="border-solid mt-3 d-block font-bold" name="Proficiency">
+                        <option value="Novice">Novice</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                </span>
+                <span class="mt-3 d-flex justify-content-end">
+                    <input type="submit" class="botton-style border-solid text-dark mt-3 font-bold" value="Add to Hobbies">
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
